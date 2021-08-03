@@ -7,13 +7,13 @@ pipeline {
     stage('terraform Init') {
       steps {
 	      //sh 'az login'
-          sh 'cd tf-pipeline && terraform init'
+          sh 'terraform init'
       }      
     }
   
     stage('terraform Plan') {
       steps {
-          sh 'cd tf-pipeline && terraform plan'
+          sh 'terraform plan'
       }      
     }
 
@@ -27,7 +27,7 @@ pipeline {
 
     stage('terraform Apply') {
       steps {
-          sh 'cd tf-pipeline && terraform apply -auto-approve'
+          sh 'terraform apply -auto-approve'
       }
     }
  } 
